@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/services.dart';
 import 'package:music_app/http.dart';
 import 'package:music_app/weather_model.dart';
 
@@ -23,10 +24,14 @@ Future<void> getData ()async
   // Llanquihue
   // Yakutsk
   // Hong Kong
-  data = await client.getWeather('cairo ');
+  data = await client.getWeather('cairo');
 }
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return  Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
